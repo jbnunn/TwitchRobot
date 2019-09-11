@@ -9,12 +9,16 @@ This code follows the live-coding streams found at [https://twitch.tv/jbnunn](ht
 * This assumes you have Raspberry Pi 4 and a 16GB mini-SD card. It is possible to get this working on a Raspberry Pi >= 2B, but it will require more time to build. 
 * Min 8GB mini-SD card
 
-Follow the instructions below to install:
+Follow the isntructions below to install the OS, the Robotic Operating System (ROS), and configure your Alexa Skills Kit skill and Lambda function.
 
-* Raspbian Buster w/ Python >= 3.6
+## Install Raspbian Buster
+
+* [Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/). Desktop is fine if you have a >8 GB card.
 * ROS Melodic
 
-### Install Dependencies for ROS
+## Install ROS Melodic
+
+### Install Dependencies
 
     $ sudo sh -c 'echo "deb  http://packages.ros.org/ros/ubuntu  $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
     $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -144,7 +148,15 @@ Install the AWS IoT Device SDK for Python to easily configure parameters for com
     $ ~/TwitchRobot/create_ws
     $ catkin build -j4
 
-### Connect to and Drive the Robot
+## Lambda
+
+TBD
+
+## Alexa SKills Kit
+
+TBD
+
+## Connect to and Drive the Robot
 
 TBD
 
