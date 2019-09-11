@@ -6,10 +6,10 @@ This code follows the live-coding streams found at [https://twitch.tv/jbnunn](ht
 
 ## Requirements
 
-* This assumes you have Raspberry Pi 4 and a 16GB mini-SD card. It is possible to get this working on a Raspberry Pi >= 2B, but it will require more time to build. 
-* Min 8GB mini-SD card
+* This assumes you have Raspberry Pi 4. It is possible to get this working on a Raspberry Pi >= 2B, but it will require more time to build. 
+* Use a 16GB or 32GB card if possible, but an 8GB mini-SD card will work as well.
 
-Follow the isntructions below to install the OS, the Robotic Operating System (ROS), and configure your Alexa Skills Kit skill and Lambda function.
+Follow the instructions below to install the OS, the Robotic Operating System (ROS), AWS Lambda code, and creation of an Alexa Skills Kit skill.
 
 ## Install Raspian Buster
 
@@ -29,17 +29,19 @@ You're now ready to [install the Robotic Operating System](./Part2-ROS.md).
 
 Now that ROS is setup on your Raspberry Pi, [follow the instructions to install the code to control the robot](./Part3-RobotCode.md). 
 
-## Lambda
+## Create AWS Lambda function code
 
 **Estimated Time: < 30 minutes**
 
-Follow [the instructions to create an AWS Lambda function](./Part4-Lambda.md). The Lambda function will receive voice commands from your Echo device, and send messages to the Create 2 robot. 
+Follow [the instructions to create an AWS Lambda function](./Part4-Lambda.md). The Lambda function will receive voice commands from your Echo device (via an Alexa Skills Kit skill), and pass those messages on to the Create 2 robot. 
 
-## Alexa SKills Kit
+## Alexa Skills Kit (ASK)
 
-TBD
+**Estimated Time: 10 minutes**
 
-## Connect to and Drive the Robot
+You'll need an [Alexa Skills Kit] skill to send voice commands from an Echo device to your robot (via AWS Lambda). [Follow the instructions](./Part5-ASK.md) to create an ASK skill.
+
+## Connect to and drive the Create 2 robot
 
 TBD
 
