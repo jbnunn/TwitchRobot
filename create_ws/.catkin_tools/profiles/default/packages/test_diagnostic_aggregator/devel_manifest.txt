@@ -1,0 +1,6 @@
+diagnostics/test_diagnostic_aggregator
+/home/jbnunn/create_ws/devel/.private/test_diagnostic_aggregator/cmake.lock /home/jbnunn/create_ws/devel/./cmake.lock
+/home/jbnunn/create_ws/devel/.private/test_diagnostic_aggregator/share/test_diagnostic_aggregator/cmake/test_diagnostic_aggregatorConfig.cmake /home/jbnunn/create_ws/devel/share/test_diagnostic_aggregator/cmake/test_diagnostic_aggregatorConfig.cmake
+/home/jbnunn/create_ws/devel/.private/test_diagnostic_aggregator/share/test_diagnostic_aggregator/cmake/test_diagnostic_aggregatorConfig-version.cmake /home/jbnunn/create_ws/devel/share/test_diagnostic_aggregator/cmake/test_diagnostic_aggregatorConfig-version.cmake
+/home/jbnunn/create_ws/devel/.private/test_diagnostic_aggregator/lib/libtest_diagnostic_aggregator.so /home/jbnunn/create_ws/devel/lib/libtest_diagnostic_aggregator.so
+/home/jbnunn/create_ws/devel/.private/test_diagnostic_aggregator/lib/pkgconfig/test_diagnostic_aggregator.pc /home/jbnunn/create_ws/devel/lib/pkgconfig/test_diagnostic_aggregator.pc

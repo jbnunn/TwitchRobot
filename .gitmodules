@@ -1,0 +1,9 @@
+[submodule "create_ws/src/create_autonomy"]
+	path = create_ws/src/create_autonomy
+	url = https://github.com/jbnunn/create_autonomy.git
+[submodule "create_ws/src/libcreate"]
+	path = create_ws/src/libcreate
+	url = https://github.com/AutonomyLab/libcreate
+[submodule "create_ws/src/diagnostics"]
+	path = create_ws/src/diagnostics
+	url = https://github.com/ros/diagnostics.git
