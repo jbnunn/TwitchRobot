@@ -11,23 +11,18 @@ This assumes you have Raspberry Pi 4 and a 16GB mini-SD card. It is possible to 
 ### Install Dependencies
 
     $ sudo sh -c 'echo "deb  http://packages.ros.org/ros/ubuntu  $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-
     $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-
     $ sudo apt-get update
-
     $ sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential  cmake
 
 ### Initialize Rosdep and Update
 
     $ sudo rosdep init
-    
     $ rosdep update
 
 ### Setup your ROS Workspace
 
     $ mkdir ~/ros_catkin_ws
-    
     $ cd ~/ros_catkin_ws
 
 ### Install the ROS Desktokp 
@@ -49,17 +44,11 @@ For older Raspberry Pis:
 [Open Asset Import Library](http://www.assimp.org/) (short name: Assimp) is a portable Open Source library to import various well-known 3D model formats in a uniform manner. The most recent version also knows how to export 3d files and is therefore suitable as a general-purpose 3D model converter.
 
     $ mkdir -p ~/ros_catkin_ws/external_src 
-    
     $ cd ~/ros_catkin_ws/external_src
-
     $ wget http://sourceforge.net/projects/assimp/files/assimp-3.1/assimp-3.1.1_no_test_models.zip/download -O assimp-3.1.1_no_test_models.zip
-
     $ unzip assimp-3.1.1_no_test_models.zip
-
     $ cd assimp-3.1.1
-    
     $ cmake .
-    
     $ make
     $ sudo make install
 
@@ -80,7 +69,6 @@ For older Raspberry Pis:
 ### Finally, source the installation and test the install
 
     $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
-    
     $ source ~/.bashrc
 
 Now, test the installation by entering the `roscore` command. You should see:
@@ -129,17 +117,14 @@ This project uses Git submodules as references to other repos. After cloning, ma
 
 ### Setup dependencies
 
-    $ cd ~/create_ws
-    
+    $ cd ~/TwitchRobot/create_ws
     $ sudo apt-get update && sudo apt-get install --only-upgrade python-catkin-pkg && sudo apt-get install -y python-catkin-tools
-    
     $ rosdep update
-    
     $ rosdep install --from-paths src --ignore-src -r -y
 
 ### Build
 
-    $ cd ~/create_ws
+    $ ~/TwitchRobot/create_ws
     $ catkin build -j4
 
 ### Connect to and Drive the Robot
