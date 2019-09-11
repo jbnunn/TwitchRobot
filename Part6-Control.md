@@ -1,4 +1,4 @@
-# [Twitch Robot](./README.md) > Controlliong the Robot
+# [Twitch Robot](./README.md) > Controlling the Robot
 
 These control tests should take 5-10 minutes.
 
