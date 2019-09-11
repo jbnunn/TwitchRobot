@@ -15,7 +15,7 @@ Follow the instructions below to install the OS, the Robotic Operating System (R
 
 **Estimated Time: 15-25 minutes**
 
-Follow [the instructions](./Part1-Raspian.md) to install Raspian Buster and update the core files. 
+Follow [the instructions](./Part1-Raspbian.md) to install Raspian Buster and update the core files. 
 
 ## Install ROS Melodic
 
