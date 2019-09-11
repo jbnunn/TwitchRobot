@@ -1,0 +1,111 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "twitch robot",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hello",
+                        "how are you",
+                        "say hi world",
+                        "say hi",
+                        "hi",
+                        "say hello world",
+                        "say hello"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "MoveDirectionIntent",
+                    "slots": [
+                        {
+                            "name": "direction",
+                            "type": "directions"
+                        }
+                    ],
+                    "samples": [
+                        "go {direction}",
+                        "travel {direction}",
+                        "move {direction}"
+                    ]
+                },
+                {
+                    "name": "SpinAroundIntent",
+                    "slots": [],
+                    "samples": [
+                        "turn around",
+                        "turn",
+                        "spin around",
+                        "spin",
+                        "180"
+                    ]
+                },
+                {
+                    "name": "StopMovingIntent",
+                    "slots": [],
+                    "samples": [
+                        "stop going backward",
+                        "stop going back",
+                        "quit going back",
+                        "quit going forward",
+                        "quit moving",
+                        "stop spinning",
+                        "stop moving",
+                        "stop going forward",
+                        "abort",
+                        "hold"   
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "directions",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "backward"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "backwards"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "forwards"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "back"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "forward"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

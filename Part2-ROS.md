@@ -102,4 +102,4 @@ Now, test the installation by entering the `roscore` command. You should see:
 
 ### On to the next step...
 
-If you see the output above, you're ready to install the Robot Code in [Part 3](./Part3-RobotCode.md).
+If you see the output above, you're ready to setup your robot code in [Part 3](./Part3-RobotCode.md).

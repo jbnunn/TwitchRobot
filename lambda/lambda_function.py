@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 import random
 import logging
-import os
 
 from ask_sdk_core.utils import is_intent_name, is_request_type
 from ask_sdk_model.ui import SimpleCard
 from ask_sdk_core.skill_builder import SkillBuilder
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
-
-AWS_IOT_ENDPOINT = os.environ['AWS_IOT_ENDPOINT']
 
 createMQTTClient = AWSIoTMQTTClient("iRobotLambdaController")
 createMQTTClient.configureEndpoint(AWS_IOT_ENDPOINT, 8883)
@@ -43,14 +40,6 @@ def format_mqtt_message(msg):
 def send_mqtt_instruction(instruction):
     msg = format_mqtt_message(instruction)
     createMQTTClient.publish('/voice/drive', msg, 1)
-
-@sb.request_handler(can_handle_func = is_intent_name("GetCrazyIntent"))
-def spin_around_intent_handler(handler_input):
-    speech = "Ok, I'll get crazy"
-    send_mqtt_instruction("get crazy")
-
-    handler_input.response_builder.speak(speech).set_card(SimpleCard(SKILL_NAME, speech)).set_should_end_session(False)
-    return handler_input.response_builder.response
 
 @sb.request_handler(can_handle_func = is_intent_name("SpinAroundIntent"))
 def spin_around_intent_handler(handler_input):

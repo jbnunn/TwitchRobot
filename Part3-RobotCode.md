@@ -36,10 +36,6 @@ This project uses Git submodules as references to other repos. After cloning, ma
 
     $ sudo usermod -a -G dialout $USER
 
-### Configure AWS IoT Certificates
-
-You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to the `certs/` and `lambda/certs/` folder.
-
 ### Install the official [AWS IoT Device SDK](https://github.com/aws/aws-iot-device-sdk-python) for Python 
 
 Install the AWS IoT Device SDK for Python to easily configure parameters for communication between your robot and the cloud.
@@ -48,4 +44,4 @@ Install the AWS IoT Device SDK for Python to easily configure parameters for com
 
 ### On to the next step...
 
-When you've finished these steps, [you're ready to configure your AWS Lambda function](./Part4-Lambda.md).
+If you see the output above, you're ready to setup AWS IoT in [Part 4](./Part4-IoT.md).
