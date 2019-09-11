@@ -64,6 +64,8 @@ For older Raspberry Pis:
 
 **Warning: This takes about 2 hours on a Raspberry Pi 4.**
 
+Note: I installed with the `-j2` switch. You can try `-j8` or `-j4` on a Raspberry Pi and potentially save a lot of time.
+
     $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
 
 ### Finally, source the installation and test the install
