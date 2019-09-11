@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import random
 import logging
+import os
 
 from ask_sdk_core.utils import is_intent_name, is_request_type
 from ask_sdk_model.ui import SimpleCard
@@ -8,9 +9,9 @@ from ask_sdk_core.skill_builder import SkillBuilder
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
-createMQTTClient = AWSIoTMQTTClient("iRobotLambdaController")
-createMQTTClient.configureEndpoint(AWS_IOT_ENDPOINT, 8883)
-createMQTTClient.configureCredentials('./certs/AmazonRootCA1.crt','./certs/iRobotRaspberryPi.private.key', './certs/iRobotRaspberryPi.cert.pem')
+createMQTTClient = AWSIoTMQTTClient("TwitchRobotController")
+createMQTTClient.configureEndpoint(os.environ['AWS_IOT_ENDPOINT'], 8883)
+createMQTTClient.configureCredentials('./certs/AmazonRootCA1.crt','./certs/TwitchRobot.private.key', './certs/TwitchRobot.cert.pem')
 
 createMQTTClient.configureAutoReconnectBackoffTime(1, 32, 20)
 createMQTTClient.configureOfflinePublishQueueing(-1)  # Infinite offline Publish queueing

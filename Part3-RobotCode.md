@@ -36,12 +36,6 @@ This project uses Git submodules as references to other repos. After cloning, ma
 
     $ sudo usermod -a -G dialout $USER
 
-### Install the official [AWS IoT Device SDK](https://github.com/aws/aws-iot-device-sdk-python) for Python 
-
-Install the AWS IoT Device SDK for Python to easily configure parameters for communication between your robot and the cloud.
-
-    $ pip3 install AWSIoTPythonSDK
-
 ### On to the next step...
 
 If you see the output above, you're ready to setup AWS IoT in [Part 4](./Part4-IoT.md).

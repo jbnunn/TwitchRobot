@@ -43,9 +43,7 @@ Follow [the instructions to create an AWS Lambda function and ASK Skill](./Part5
 
 ## Connect to and drive the Create 2 robot
 
-You're now ready to drive the robot! Let's SSH in first to make sure it responds to commands directly on the robot:
-
-TBD
+Finally, move to the last section, [Controlling the Robot](./Part6-Control.md). 
 
 ## Sources
 

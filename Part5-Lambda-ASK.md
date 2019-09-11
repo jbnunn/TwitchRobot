@@ -25,14 +25,15 @@ You'll need to create a [Lambda deployment package](https://docs.aws.amazon.com/
 #### Install the dependencies
 
     $ cd lambda
-    $ pip3 install --target ./package AWSIoTPythonSDK 
+    $ pip install --target ./package AWSIoTPythonSDK 
+    $ pip install --target ./package ask-sdk-core
 
 #### Zip the dependencies
 
     $ cd package
     $ zip -r9 ${OLDPWD}/lambda_function.zip .
 
-#### Add your lambda code to the zip file
+#### Add your Lambda code to the zip file
 
     $ cd $OLDPWD
     $ zip -g lambda_function.zip lambda_function.py
@@ -57,19 +58,9 @@ to add your latest changes to your zip file. Then reupload with
 
     $ aws lambda update-function-code --function-name <your-function-name> --zip-file fileb://lambda_function.zip
 
-### Create an environment variable
+### Setup a Lambda environment variable for your AWS IoT Endpoint
 
-You'll need an AWS IOT endpoint with which to communicted to/from your robot. From the command line, issue the following command:
-
-    $ aws iot describe-endpoint --endpoint-type iot:Data-ATS
-
-You should see a result similar to:
-
-    {
-        "endpointAddress": "abcdefghijk123-ats.iot.us-east-1.amazonaws.com"
-    }
-
-Copy the `endpointAddress` value, then visit the [Lambda dashboard](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions) and go to your function. Scroll to the Environment Variables and add a key of "AWS_IOT_ENDPOINT" and a value of the endpoint you just received above.
+Visit the [Lambda dashboard](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions) and go to your function. Scroll to the Environment Variables and add a key of "AWS_IOT_ENDPOINT" and a value of the endpoint you created in Part 4.
 
 ### Add an Alexa Skills Kit Trigger
 
@@ -93,12 +84,16 @@ Click "JSON Editor" under __Interaction Model__, and paste the contents of [en-U
 
 ### Update the Endpoint
 
-Click "Endpoint" under __Interaction Model__ and paste the Lambda ARN you previously copied.
+Click "Endpoint" under __Interaction Model__ and paste the Lambda ARN you previously copied into the "Default Region"
 
 ### Update the Invocation Name
 
 Click "Invocation" under __Interaction Model__ and give your skill an invocation name, like "twitch robot." This will be the phrase you use to initiate the skill on your Echo devices.
 
+### Build the Model
+
+Now click the **Build Model** button to save and build your model.
+
 ### On to the next step...
 
-TBD
+You're now ready for the final section, [Controlling the Robot](./Part6-Control.md).

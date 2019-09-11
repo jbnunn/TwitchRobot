@@ -6,14 +6,15 @@ This is the longest portion of the entire install, and may take 2 hours to compl
 
 ### SSH into your Raspberry Pi
 
-    ssh pi@192.168.X.Y
+    $ ssh pi@192.168.X.Y
 
 ### Install Dependencies
 
     $ sudo sh -c 'echo "deb  http://packages.ros.org/ros/ubuntu  $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
     $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
     $ sudo apt-get update
-    $ sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential  cmake
+    $ sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake
+    $ pip install rospkg
 
 ### Initialize Rosdep and Update
 
@@ -68,10 +69,18 @@ Note: I installed with the `-j2` switch. You can try `-j8` or `-j4` on a Raspber
 
     $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
 
-### Finally, source the installation and test the install
+### Init some default shell scripts
 
     $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
     $ echo "source ~/TwitchRobot/create_ws/devel/setup.bash" >> ~/.bashrc
+
+### Setup an alias to Python 3
+
+    $ echo "alias python=python3" >> ~/.bashrc
+    $ echo "alias pip=pip3" >> ~/.bashrc
+
+### Finally, source the changes
+
     $ source ~/.bashrc
 
 Now, test the installation by entering the `roscore` command. You should see:
