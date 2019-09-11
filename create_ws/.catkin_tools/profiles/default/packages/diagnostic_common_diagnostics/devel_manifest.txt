@@ -1,6 +1,6 @@
 diagnostics/diagnostic_common_diagnostics
-/home/jbnunn/create_ws/devel/.private/diagnostic_common_diagnostics/cmake.lock /home/jbnunn/create_ws/devel/./cmake.lock
-/home/jbnunn/create_ws/devel/.private/diagnostic_common_diagnostics/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig-version.cmake /home/jbnunn/create_ws/devel/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig-version.cmake
-/home/jbnunn/create_ws/devel/.private/diagnostic_common_diagnostics/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig.cmake /home/jbnunn/create_ws/devel/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig.cmake
-/home/jbnunn/create_ws/devel/.private/diagnostic_common_diagnostics/lib/pkgconfig/diagnostic_common_diagnostics.pc /home/jbnunn/create_ws/devel/lib/pkgconfig/diagnostic_common_diagnostics.pc
-/home/jbnunn/create_ws/devel/.private/diagnostic_common_diagnostics/lib/python2.7/dist-packages/diagnostic_common_diagnostics/__init__.py /home/jbnunn/create_ws/devel/lib/python2.7/dist-packages/diagnostic_common_diagnostics/__init__.py
+/home/pi/TwitchRobot/create_ws/devel/.private/diagnostic_common_diagnostics/cmake.lock /home/pi/TwitchRobot/create_ws/devel/./cmake.lock
+/home/pi/TwitchRobot/create_ws/devel/.private/diagnostic_common_diagnostics/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig-version.cmake /home/pi/TwitchRobot/create_ws/devel/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig-version.cmake
+/home/pi/TwitchRobot/create_ws/devel/.private/diagnostic_common_diagnostics/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig.cmake /home/pi/TwitchRobot/create_ws/devel/share/diagnostic_common_diagnostics/cmake/diagnostic_common_diagnosticsConfig.cmake
+/home/pi/TwitchRobot/create_ws/devel/.private/diagnostic_common_diagnostics/lib/pkgconfig/diagnostic_common_diagnostics.pc /home/pi/TwitchRobot/create_ws/devel/lib/pkgconfig/diagnostic_common_diagnostics.pc
+/home/pi/TwitchRobot/create_ws/devel/.private/diagnostic_common_diagnostics/lib/python2.7/dist-packages/diagnostic_common_diagnostics/__init__.py /home/pi/TwitchRobot/create_ws/devel/lib/python2.7/dist-packages/diagnostic_common_diagnostics/__init__.py

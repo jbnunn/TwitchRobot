@@ -5,6 +5,6 @@
 	path = create_ws/src/diagnostics
 	url = https://github.com/ros/diagnostics.git
 [submodule "create_autonomy"]
-	path = create_autonomy
+	path = create_ws/src/create_autonomy
 	url = https://github.com/jbnunn/create_autonomy.git
 	branch = melodic
