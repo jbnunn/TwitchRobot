@@ -1,6 +1,6 @@
 # [Twitch Robot](./README.md) > Alexa Skills Kit (ASK)
 
-This should take less than 15 minutes
+This should take less than 10 minutes
 
 ## Steps
 
