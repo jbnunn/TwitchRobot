@@ -69,6 +69,7 @@ For older Raspberry Pis:
 ### Finally, source the installation and test the install
 
     $ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+    $ echo "source ~/TwitchRobot/create_ws/devel/setup.bash" >> ~/.bashrc
     $ source ~/.bashrc
 
 Now, test the installation by entering the `roscore` command. You should see:
@@ -110,6 +111,16 @@ Now that ROS is setup on your Raspberry Pi, you'll want to clone this repo into 
 This project uses Git submodules as references to other repos. After cloning, make sure you've got the latest the submodules:
 
     $ git pull --recurse-submodules
+    
+### Configure AWS IoT Certificates
+
+You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to the `lambda/certs/` folder.
+
+### Install the official [AWS IoT Device SDK](https://github.com/aws/aws-iot-device-sdk-python) for Python 
+
+Install the AWS IoT Device SDK for Python to easily configure parameters for communication between your robot and the cloud.
+
+    $ pip3 install AWSIoTPythonSDK
     
 ### Establish Serial Communciations
 
