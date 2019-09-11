@@ -4,11 +4,17 @@ This is the robot code, Alexa Skills Kit code, and AWS Lambda code you'll need t
 
 This code follows the live-coding streams found at [https://twitch.tv/jbnunn](https://twitch.tv/jbnunn), [https://twitch.tv/amazonalexa](https://twitch.tv/amazonalexa), and the [Amazon Alexa Voice + Robotics Youtube Channel](https://www.youtube.com/playlist?list=PL2KJmkHeYQTNKbeNmYxs-CY3AhPJcl61U).
 
-## Setup instructions for Raspberry Pi
+## Requirements
 
-This assumes you have Raspberry Pi 4 and a 16GB mini-SD card. It is possible to get this working on a Raspberry Pi 3, and possibly a 2, but it will require more time to build.
+* This assumes you have Raspberry Pi 4 and a 16GB mini-SD card. It is possible to get this working on a Raspberry Pi >= 2B, but it will require more time to build. 
+* Min 8GB mini-SD card
 
-### Install Dependencies
+Follow the instructions below to install:
+
+* Raspbian Buster w/ Python >= 3.6
+* ROS Melodic
+
+### Install Dependencies for ROS
 
     $ sudo sh -c 'echo "deb  http://packages.ros.org/ros/ubuntu  $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
     $ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -104,7 +110,7 @@ Now, test the installation by entering the `roscore` command. You should see:
 
 Now that ROS is setup on your Raspberry Pi, you'll want to clone this repo into ~/TwitchRobot/.
 
-    $ git clone -b robot https://github.com/jbnunn/TwitchRobot.git
+    $ git clone https://github.com/jbnunn/TwitchRobot.git ~/
 
 ### Submodules
 
@@ -114,7 +120,7 @@ This project uses Git submodules as references to other repos. After cloning, ma
     
 ### Configure AWS IoT Certificates
 
-You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to the `lambda/certs/` folder.
+You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to the `certs/` and `lambda/certs/` folder.
 
 ### Install the official [AWS IoT Device SDK](https://github.com/aws/aws-iot-device-sdk-python) for Python 
 
