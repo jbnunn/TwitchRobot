@@ -1,6 +1,22 @@
 # Using PiCam for Twitch Bot
 
-# Facial Recognition
+We'll tackle two approaches -- onboard processing and processing in the cloud.
+
+# Face/Object Detection via Onboard Processing 
+
+## Prerequisites:
+
+1. Install OpenCV, 
+
+        sudo apt install python3-opencv python3-pyqt5 
+
+2. Install MXNet
+
+        cd ~/TwitchRobot/picam/onboard/
+        wget https://mxnet-public.s3.amazonaws.com/install/raspbian/mxnet-1.5.0-py2.py3-none-any.whl
+
+
+# Face/Object Detection via the Cloud
 
 We can allow our robot to identify faces it detects by building a simple facial recognition system. In this example, my robot will
 recognize faces of family and friends I add to a collection I curate. 
@@ -53,7 +69,6 @@ Visit [the Lambda console](https://console.aws.amazon.com/lambda/home?region=us-
         s3 = boto3.client('s3')
         rekognition = boto3.client('rekognition')
         table_name = 'rekognition_family_and_friends'
-
 
         # --------------- Helper Functions ------------------
 

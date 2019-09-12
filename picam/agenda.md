@@ -1,7 +1,7 @@
 ## Agenda
 
 1. Connect to the Pi Camera (done)
-2. Send video to Amazon Rekognition via Kinesis video
+2. Send video to Amazon Rekognition via Kinesis video (done)
 
 (follow https://aws.amazon.com/kinesis/video-streams/raspberry-pi-tutorial/)
 
@@ -39,6 +39,10 @@ Settings: https://gstreamer.freedesktop.org/documentation/videofilter/videoflip.
 
     gst-launch-1.0 -v v4l2src do-timestamp=TRUE device=/dev/video0 ! videoflip method=rotate-180 ! videoconvert ! video/x-raw,format=I420,width=640,height=480,framerate=30/1 ! omxh264enc periodicty-idr=45 inline-header=FALSE ! h264parse ! video/x-h264,stream-format=avc,alignment=au ! kvssink stream-name=TwitchRobotCam
 
+
+# Kinesis Video works, let's try to get bounding boxes
+
+https://docs.aws.amazon.com/rekognition/latest/dg/images-displaying-bounding-boxes.html
 
 
 
