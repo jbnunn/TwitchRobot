@@ -46,7 +46,15 @@ You should have copied your AWS IoT certificates from the steps in [Part 3](./Pa
 
 #### Upload the code to your Lambda function
 
-    $ aws lambda update-function-code --function-name <your-function-name> --zip-file fileb://lambda_function.zip
+__Note: Replace `TwitchRobot` below with the name of your AWS Lambda function.__
+
+    $ aws lambda update-function-code --function-name TwitchRobot --zip-file fileb://lambda_function.zip
+
+Or, in one step:
+
+    $ ./upload.sh
+
+(You may need to run `chmod +x upload.sh` before running this for the first time)
 
 #### Future code edits
 
