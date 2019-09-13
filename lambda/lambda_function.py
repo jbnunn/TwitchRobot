@@ -11,7 +11,7 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
 createMQTTClient = AWSIoTMQTTClient("TwitchRobotController")
 createMQTTClient.configureEndpoint(os.environ['AWS_IOT_ENDPOINT'], 8883)
-createMQTTClient.configureCredentials('./certs/AmazonRootCA1.crt','./certs/TwitchRobot.pem.key', './certs/TwitchRobot.pem.cert')
+createMQTTClient.configureCredentials('./certs/AmazonRootCA1.crt','./certs/TwitchRobot.pem.key', './certs/TwitchRobot.pem.crt')
 
 createMQTTClient.configureAutoReconnectBackoffTime(1, 32, 20)
 createMQTTClient.configureOfflinePublishQueueing(-1)  # Infinite offline Publish queueing
