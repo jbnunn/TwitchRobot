@@ -17,6 +17,7 @@ endpoint = os.environ['AWS_IOT_ENDPOINT'] # Set this up in your bash profile
 
 createMQTTClient = AWSIoTMQTTClient("TwitchRobotRaspberryPi")
 createMQTTClient.configureEndpoint(endpoint, 443)
+
 # Change these certificate names
 createMQTTClient.configureCredentials("/home/pi/TwitchRobot/certs/AmazonRootCA1.crt", "/home/pi/TwitchRobot/certs/TwitchRobot.private.key", "/home/pi/TwitchRobot/certs/TwitchRobot.cert.pem")
 
@@ -104,9 +105,32 @@ def driveCallback(client, userdata, message):
     elif command == "spin":
         spin()
 
-print("Listening on /voice/drive")
+# Camera Operations
+take_picture
+
+# Custom MQTT message callback
+def cameraCallback(client, userdata, message):
+    print("Received a new message: ")
+    print(message.payload)
+    print("from topic: ")
+    print(message.topic)
+    print("--------------\n\n")
+
+    print("Command:")
+    payload = json.loads(message.payload)
+    command = payload['data']
+    print(command)
+
+    if command == "take picture":
+        take_picture()
+    else:
+        print("Camera directive not recognized")   
 
 createMQTTClient.subscribe("/voice/drive", 1, driveCallback)
+createMQTTClient.subscribe("/camera", 1, cameraCallback)
+
+print("Listening on /voice/drive")
+print("Listening on /camera")
 
 while True:
     signal.signal(signal.SIGINT, interrupt_handler)
