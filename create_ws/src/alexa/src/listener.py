@@ -18,7 +18,7 @@ endpoint = os.environ['AWS_IOT_ENDPOINT'] # Set this up in your bash profile
 createMQTTClient = AWSIoTMQTTClient("TwitchRobotRaspberryPi")
 createMQTTClient.configureEndpoint(endpoint, 443)
 # Change these certificate names
-createMQTTClient.configureCredentials("/home/pi/TwitchRobot/certs/AmazonRootCA1.crt", "/home/pi/TwitchRobot/certs/TwitchRobot.private.key", "/home/pi/TwitchRobot/certs/TwitchRobot.cert.pem")
+createMQTTClient.configureCredentials("/home/pi/TwitchRobot/certs/AmazonRootCA1.crt", "/home/pi/TwitchRobot/certs/TwitchRobot.pem.key", "/home/pi/TwitchRobot/certs/TwitchRobot.pem.cert")
 
 createMQTTClient.configureOfflinePublishQueueing(-1)  # Infinite offline Publish queueing
 createMQTTClient.configureDrainingFrequency(2)  # Draining: 2 Hz

@@ -6,7 +6,46 @@ This should take 5-10 minutes.
 
 ### Create Thing and Certificates
 
-You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to the `certs/` and `lambda/certs/` folder.
+1. You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to the `certs/` and `lambda/certs/` folder.
+
+2. Activate the Thing, then attach the following policy to allow communications between the IoT service and your device.
+
+    {
+        "Version": "2012-10-17",
+        "Statement": [{
+                "Effect": "Allow",
+                "Action": [
+                    "iot:Publish",
+                    "iot:Subscribe",
+                    "iot:Connect",
+                    "iot:Receive"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "iot:GetThingShadow",
+                    "iot:UpdateThingShadow",
+                    "iot:DeleteThingShadow"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "greengrass:*"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            }
+        ]
+    }
 
 ### Setup OS Environment variable
 
