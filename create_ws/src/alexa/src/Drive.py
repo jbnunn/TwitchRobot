@@ -36,7 +36,7 @@ class Drive():
 
         vel_msg = Twist()
         PI = 3.14159
-        angular_speed = radians_per_sec * 2 * PI/360
+        angular_speed = speed * 2 * PI/360
         relative_angle = angle * 2 * PI/360
         
         vel_msg.linear.x = 0
