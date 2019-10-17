@@ -14,4 +14,4 @@ Download [Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/) and 
 
 ### On to the next step...
 
-When the upgrades have completed, you're ready to install the Robotic Operating System in [Part 2](./Part2-ROS.md).
+When the upgrades have completed, you're ready to install the Robotic Operating System in [Chapter 2](./Chapter2-ROS.md).

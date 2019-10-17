@@ -142,5 +142,6 @@ The `geometry_msgs/Twist` values follow:
 
 Now the final test. Invoke your ASK Skill using the invocation phrase you previously setup when your created the skill, e.g., "Alexa, open Twitch Robot". Then, give it a command like "spin around." Your Create 2 should start spinning around.
 
+### On to the next step...
 
-
+You're now ready for the next chapter, [Person and Object Detection](./Chapter7-Person-Object-Detection.md).

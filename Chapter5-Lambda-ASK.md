@@ -104,4 +104,4 @@ Now click the **Build Model** button to save and build your model.
 
 ### On to the next step...
 
-You're now ready for the final section, [Controlling the Robot](./Part6-Control.md).
+You're now ready for the next chapter, [Controlling the Robot](./Chapter6-Control.md).

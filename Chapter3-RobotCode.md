@@ -38,4 +38,4 @@ This project uses Git submodules as references to other repos. After cloning, ma
 
 ### On to the next step...
 
-If you see the output above, you're ready to setup AWS IoT in [Part 4](./Part4-IoT.md).
+If you see the output above, you're ready to setup AWS IoT in [Chapter 4](./Chapter4-IoT.md).

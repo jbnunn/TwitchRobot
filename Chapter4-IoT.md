@@ -91,4 +91,4 @@ Modify the certificate names to be the ones you downloaded.
 
 ### On to the next step...
 
-When you've finished these steps, [you're ready to configure your AWS Lambda function and ASK Skill](./Part5-Lambda-ASK.md).
+When you've finished these steps, [you're ready to configure your AWS Lambda function and ASK Skill in Chapter 5](./Chapter5-Lambda-ASK.md).

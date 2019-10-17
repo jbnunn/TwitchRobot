@@ -47,16 +47,6 @@
                     ]
                 },
                 {
-                    "name": "SpinAroundIntent",
-                    "slots": [],
-                    "samples": [
-                        "turn around",
-                        "turn",
-                        "spin around",
-                        "spin"
-                    ]
-                },
-                {
                     "name": "StopMovingIntent",
                     "slots": [],
                     "samples": [
@@ -66,10 +56,68 @@
                         "quit going forward",
                         "quit moving",
                         "stop spinning",
-                        "stop moving",
-                        "stop going forward",
-                        "abort",
-                        "hold"   
+                        "stop moving"
+                    ]
+                },
+                {
+                    "name": "SpinAroundIntent",
+                    "slots": [],
+                    "samples": [
+                        "twist",
+                        "spin around",
+                        "spin"
+                    ]
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PictureIntent",
+                    "slots": [],
+                    "samples": [
+                        "snap a photo",
+                        "tell me about the room",
+                        "what do you see ",
+                        "capture a photo",
+                        "take a pic",
+                        "take a picture"
                     ]
                 }
             ],
