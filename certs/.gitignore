@@ -1,2 +1,4 @@
+*.pem
+*.key
 *.pem.key
 *.pem.crt
