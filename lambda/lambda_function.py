@@ -6,7 +6,7 @@ import time
 import json
 import boto3
 
-from ask_sdk_core.utils import is_intent_name, is_request_type
+from ask_sdk_core.utils import is_intent_name, is_request_type, viewport
 from ask_sdk_model.ui import SimpleCard
 from ask_sdk_core.skill_builder import SkillBuilder
 
@@ -87,13 +87,12 @@ def picture_intent_handler(handler_input):
     2) send an mqtt message
     3) wait with time.sleep(x)
     4) Query DDB for the results
-    *
-    5) APL to show the image
+    5) APL to show the image (if on a supported device)
     """
     session_id = handler_input.request_envelope.session.session_id
     send_mqtt_directive("/camera", "take a picture", data={"session_id":session_id})
     
-    time.sleep(5)
+    time.sleep(3) # Let's give the backend process a little time to 1) take a picture, 2) recognize people and objects, and 3) upload details to DDB
     
     dynamodb = boto3.resource("dynamodb")
     table = dynamodb.Table('TwitchRobot_Scenes')
@@ -104,7 +103,9 @@ def picture_intent_handler(handler_input):
         response = table.get_item(Key={'session_id': session_id})
     except ClientError as e:
         print(e.response['Error']['Message'])
-    else:
+        speech = "I had trouble getting anything back from the camera."
+    
+    if response and 'Item' in response:
         item = response['Item']
         
         recognized_people = False
@@ -127,14 +128,25 @@ def picture_intent_handler(handler_input):
 
         if not recognized_people and not recognized_labels:
             speech += "I didn't detect anything in the scene."
-    
-    handler_input.response_builder.speak(speech).set_card(SimpleCard(SKILL_NAME, speech)).add_directive(
-            RenderDocumentDirective(
-                token="pictureToken",
-                document=_load_apl_document("./apl/document.json"),
-                datasources=_load_apl_document("./apl/data.json")
-            )
-        ).set_should_end_session(False)
+            
+    else:
+        speech += "I didn't detect anything in the scene."
+
+    # See if APL is supported:
+    if viewport.get_viewport_profile(handler_input.request_envelope) == viewport.ViewportProfile.UNKNOWN_VIEWPORT_PROFILE:
+        # Just return speech without any APL
+        handler_input.response_builder.speak(speech).set_card(SimpleCard(SKILL_NAME, speech)).set_should_end_session(False)
+
+    else: 
+        # Return speech and use APL to show the image
+        handler_input.response_builder.speak(speech).set_card(SimpleCard(SKILL_NAME, speech)).add_directive(
+                RenderDocumentDirective(
+                    token="pictureToken",
+                    document=_load_apl_document("./apl/document.json"),
+                    datasources=_load_apl_document("./apl/data.json")
+                )
+            ).set_should_end_session(False)
+
     return handler_input.response_builder.response
 
 @sb.request_handler(can_handle_func = is_intent_name("MoveDirectionIntent"))

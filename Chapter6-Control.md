@@ -10,7 +10,7 @@ Connect the serial cable that came with your Create 2 to a USB port on your Rasp
 
     $ ssh pi@192.168.X.Y
     $ cd ~/TwitchRobot/create_ws
-    $ source devel/setup.bash
+    $ source devel/setup.bash # or setup.zsh if you're using zshell
     $ roslaunch ca_driver create_2.launch
 
 If connected to the robot, you should see something similar to:
@@ -59,7 +59,15 @@ Run the launch file:
 
 Upon launching, you should see something simliar to the following:
 
-    $ [ INFO] ... [CREATE] Ready.
+    process[ca_driver-2]: started with pid [3215]
+    process[voice_commands-3]: started with pid [3218]
+    process[robot_state_publisher-4]: started with pid [3221]
+    [ INFO] [1571341194.334954192]: [CREATE] "CREATE_2" selected
+    [ INFO] [1571341195.516218986]: [CREATE] Connection established.
+    [ INFO] [1571341195.516422889]: [CREATE] Battery level 88.23 %
+    [ INFO] [1571341195.616457469]: [CREATE] Ready.
+    Listening on /voice/drive
+    Listening on /camera
 
 This launches the Create Autonomy pacakge and ASK listener. The ASK listener listens on an MQTT topic (`/voice/drive`)for commands. The Create Autonomy package sets up the following:
 
