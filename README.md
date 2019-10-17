@@ -51,7 +51,7 @@ You're now ready to [control the Robot](./Chapter6-Control.md).
 
 **Estimated Time: 5-10 minutes**
 
-You have a robot you can control with voice, now we'll add extra functionality to it to make it more useful. [Follow the instructions in Chapter 7](./Chater7-Person-Object-Detection.md) to give your robot the ability to detect and people and objects and do facial recognition.
+You have a robot you can control with voice, now we'll add extra functionality to it to make it more useful. [Follow the instructions in Chapter 7](./Chapter7-Person-Object-Detection.md) to give your robot the ability to detect and people and objects and do facial recognition.
 
 ## Sources
 
