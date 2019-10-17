@@ -2,12 +2,22 @@
 import random
 import logging
 import os
+import time
+import json
+import boto3
 
 from ask_sdk_core.utils import is_intent_name, is_request_type
 from ask_sdk_model.ui import SimpleCard
 from ask_sdk_core.skill_builder import SkillBuilder
 
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
+
+from boto3.dynamodb.conditions import Key, Attr
+from botocore.exceptions import ClientError
+
+from ask_sdk_model.interfaces.alexa.presentation.apl import (
+    RenderDocumentDirective, ExecuteCommandsDirective, SpeakItemCommand,
+    AutoPageCommand, HighlightMode)
 
 createMQTTClient = AWSIoTMQTTClient("TwitchRobotController")
 createMQTTClient.configureEndpoint(os.environ['AWS_IOT_ENDPOINT'], 8883)
@@ -33,19 +43,29 @@ sb = SkillBuilder()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-''' Makes a string message MQTT friendly by making it look like JSON '''
-def format_mqtt_message(msg):
-    msg = '{"data": "' + msg + '"}'
-    return msg
+def _load_apl_document(file_path):
+    """Load the apl json document at the path into a dict object."""
+    with open(file_path) as f:
+        return json.load(f)
 
-def send_mqtt_instruction(instruction):
-    msg = format_mqtt_message(instruction)
-    createMQTTClient.publish('/voice/drive', msg, 1)
+def format_mqtt_message(directive, data):
+    payload = {}
+    payload['directive'] = directive
+    payload['data'] = data
+    
+    print("Payload")
+    print(json.dumps(payload))
+    
+    return json.dumps(payload)
+
+def send_mqtt_directive(topic, directive, data = {}):
+    payload = format_mqtt_message(directive, data)
+    createMQTTClient.publish(topic, payload, 1)
 
 @sb.request_handler(can_handle_func = is_intent_name("SpinAroundIntent"))
 def spin_around_intent_handler(handler_input):
     speech = "Ok, spinning"
-    send_mqtt_instruction("spin")
+    send_mqtt_directive("/voice/drive", "spin")
 
     handler_input.response_builder.speak(speech).set_card(SimpleCard(SKILL_NAME, speech)).set_should_end_session(False)
     return handler_input.response_builder.response
@@ -53,11 +73,69 @@ def spin_around_intent_handler(handler_input):
 @sb.request_handler(can_handle_func = is_intent_name("StopMovingIntent"))
 def stop_moving_intent_handler(handler_input):
     speech = "Ok, I'll stop the robot"
-    send_mqtt_instruction("stop")
+    send_mqtt_directive("/voice/drive", "stop")
 
     handler_input.response_builder.speak(speech).set_card(SimpleCard(SKILL_NAME, speech)).set_should_end_session(False)
     return handler_input.response_builder.response
+    
+@sb.request_handler(can_handle_func = is_intent_name("PictureIntent"))
+def picture_intent_handler(handler_input):
+    """
+    Takes a picture and reads out the results
+    
+    1) Get session ID
+    2) send an mqtt message
+    3) wait with time.sleep(x)
+    4) Query DDB for the results
+    *
+    5) APL to show the image
+    """
+    session_id = handler_input.request_envelope.session.session_id
+    send_mqtt_directive("/camera", "take a picture", data={"session_id":session_id})
+    
+    time.sleep(5)
+    
+    dynamodb = boto3.resource("dynamodb")
+    table = dynamodb.Table('TwitchRobot_Scenes')
 
+    speech = "Got it. "
+
+    try:
+        response = table.get_item(Key={'session_id': session_id})
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+    else:
+        item = response['Item']
+        
+        recognized_people = False
+        recognized_labels = False
+        
+        if len(item['recognized_people']) > 0:
+            recognized_people = True
+            speech += "I recognized: "
+            for person in item['recognized_people']:
+                speech += person + ", "
+        
+        if len(item['labels']) > 0:
+            if recognized_people:
+                speech += "I also see: "
+            else:
+                speech += "I see: "
+            
+            for label in item['labels']:
+                speech += label + ", "
+
+        if not recognized_people and not recognized_labels:
+            speech += "I didn't detect anything in the scene."
+    
+    handler_input.response_builder.speak(speech).set_card(SimpleCard(SKILL_NAME, speech)).add_directive(
+            RenderDocumentDirective(
+                token="pictureToken",
+                document=_load_apl_document("./apl/document.json"),
+                datasources=_load_apl_document("./apl/data.json")
+            )
+        ).set_should_end_session(False)
+    return handler_input.response_builder.response
 
 @sb.request_handler(can_handle_func = is_intent_name("MoveDirectionIntent"))
 def move_direction_intent_handler(handler_input):
@@ -69,11 +147,11 @@ def move_direction_intent_handler(handler_input):
     if direction_value.find('forw') == 0:
         direction = "forward"
         speech = "Ok, moving forward"
-        send_mqtt_instruction(direction)
+        send_mqtt_directive("/voice/drive", direction)
     elif direction_value.find('back') == 0:
         direction = "back"
         speech = "Ok, moving backwards"
-        send_mqtt_instruction(direction)
+        send_mqtt_directive("/voice/drive", direction)
     else:
         direction = False
         speech = "Hmm. Please ask me to move only forward, backwards, or to spin."
