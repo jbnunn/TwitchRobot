@@ -1,24 +1,6 @@
-# Using PiCam for Twitch Bot
-
-We'll tackle two approaches -- onboard processing and processing in the cloud.
-
-# Face/Object Detection via Onboard Processing 
-
-## Prerequisites:
-
-1. Install OpenCV, 
-
-        sudo apt install python3-opencv python3-pyqt5 
-
-2. Install MXNet
-
-        cd ~/TwitchRobot/picam/onboard/
-        wget https://mxnet-public.s3.amazonaws.com/install/raspbian/mxnet-1.5.0-py2.py3-none-any.whl
-
-
 # Face/Object Detection via the Cloud
 
-We can allow our robot to identify faces it detects by building a simple facial recognition system. In this example, my robot will
+We can allow our robot to identify faces it detects by building a simple facial recognition system. In this example, the robot will
 recognize faces of family and friends I add to a collection I curate. 
 
 ## Create a Collection and Setup Permissions
@@ -37,7 +19,7 @@ recognize faces of family and friends I add to a collection I curate.
 
 3. Create an S3 bucket to hold the image you want Rekognition to index, e.g.,
 
-        aws s3 mb s3://jeffnunn-rekognition/
+        aws s3 mb s3://<your-bucket-name>/
 
 4. Create a role that allows access to the S3 bucket and DynamoDB table
 
@@ -49,7 +31,7 @@ recognize faces of family and friends I add to a collection I curate.
 
 ## Create an Indexer with AWS Lambda
 
-Visit [the Lambda console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create) to create a function that gets triggerd every time we add a new picture to our S3 bucket. 
+Visit [the Lambda console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create) to create a function that gets triggered every time we add a new picture to our S3 bucket. 
 
 1. Choose "Author from Scratch" and choose the Python 3.6 runtime.
 2. For **Permissions**, choose the "Existing Role" option and specify the `LambdaRekognitionRole` you just created.
