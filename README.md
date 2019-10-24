@@ -53,7 +53,7 @@ You're now ready to [control the Robot](./Chapter6-Control.md).
 
 You have a robot you can control with voice, now we'll add extra functionality to it to make it more useful. [Follow the instructions in Chapter 7](./Chapter7-Person-Object-Detection.md) to give your robot the ability to detect and people and objects and do facial recognition.
 
-## Sources
+## Credits
 
 Installing ROS is rarely a cakewalk, but the installation of Raspbian and ROS Melodic was made easier by the blog post at [https://www.instructables.com/id/ROS-Melodic-on-Raspberry-Pi-4-RPLIDAR/](https://www.instructables.com/id/ROS-Melodic-on-Raspberry-Pi-4-RPLIDAR/).
 
