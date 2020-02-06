@@ -83,7 +83,7 @@ Install the AWS IoT Device SDK for Python to easily configure parameters for com
 
 ### Update your certificate names in `/create_ws/src/alexa/src/listener.py`.
 
-You'll need to change the names of the certificates in the `listener.py` code. Open that file, and search for the line
+You'll need to change the names of the certificates in the [listener.py code](https://github.com/jbnunn/TwitchRobot/blob/master/create_ws/src/alexa/src/listener.py). Open that file, and search for the line
 
     # Change these certificate names
 
