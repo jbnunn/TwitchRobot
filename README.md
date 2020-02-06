@@ -33,7 +33,7 @@ Now that ROS is setup on your Raspberry Pi, [follow the instructions to install 
 
 **Estimated Time: 5-10 minutes**
 
-[In this section](./Chapter4-IoT), you'll need to register an IoT "Thing" and create certificates that will allow secure communication.
+[In this section](./Chapter4-IoT.md), you'll need to register an IoT "Thing" and create certificates that will allow secure communication.
 
 ## Chapter 5: Create AWS Lambda function code and ASK function
 
