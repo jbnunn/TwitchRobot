@@ -10,6 +10,7 @@ This should take 5-10 minutes.
 
 2. Activate the Thing, then attach the following policy to allow communications between the IoT service and your device.
 
+```
     {
         "Version": "2012-10-17",
         "Statement": [{
@@ -46,7 +47,7 @@ This should take 5-10 minutes.
             }
         ]
     }
-
+```
 ### Setup OS Environment variable
 
 You'll need an AWS IOT endpoint with which to communicted to/from your robot. From the command line, issue the following command:
