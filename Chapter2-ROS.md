@@ -75,6 +75,7 @@ sudo apt-get install -y libogre-1.9-dev
 ### Install the rest of the dependencies
 
 ```
+cd ~/ros_catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro melodic -y
 ```
 
