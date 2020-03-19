@@ -1,6 +1,6 @@
 # [Twitch Robot](./README.md) > Installing the Robotic Operating System (ROS)
 
-This is the longest portion of the entire install, and may take 2 hours to complete, due to building ROS from source.
+This is the longest portion of the entire install, and may take 2 or more hours to complete, due to building ROS from source.
 
 ## Steps
 
