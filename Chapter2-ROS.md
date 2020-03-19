@@ -31,7 +31,7 @@ mkdir ~/ros_catkin_ws
 cd ~/ros_catkin_ws
 ```
 
-### Install the ROS Desktokp 
+### OPTIONAL: Install the ROS Desktokp 
 
 This will include GUI tools like `rqt` and `rviz`:
 
@@ -62,7 +62,7 @@ wget http://sourceforge.net/projects/assimp/files/assimp-3.1/assimp-3.1.1_no_tes
 unzip assimp-3.1.1_no_test_models.zip
 cd assimp-3.1.1
 cmake .
-make
+make -j2
 sudo make install
 ```
 
