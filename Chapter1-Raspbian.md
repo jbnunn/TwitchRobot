@@ -6,7 +6,7 @@ This should take less than 30 minutes, but it's possible it may take longer when
 
 ### Download the OS
 
-Download [Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/) and flash an SD card. You can use the "Desktop" version if you have a card >8 GB. Boot your Raspberry Pi with the card, then choose the appropriate locale, language, and keyboard settings. Be sure to [enable WiFi and SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/).
+Download [Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/) and flash an SD card. Boot your Raspberry Pi with the card, then choose the appropriate locale, language, and keyboard settings. Be sure to [enable WiFi and SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
 ### Update the OS
 
