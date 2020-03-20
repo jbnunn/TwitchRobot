@@ -31,7 +31,7 @@ Now that ROS is setup on your Raspberry Pi, [follow the instructions to install 
 
 ## Chapter 4: Setup AWS IoT Service
 
-**Estimated Time: 5-10 minutes**
+**Estimated Time: 15-30 minutes**
 
 [In this section](./Chapter4-IoT.md), you'll need to register an IoT "Thing" and create certificates that will allow secure communication.
 
