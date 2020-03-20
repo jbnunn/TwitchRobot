@@ -33,6 +33,7 @@ cd ~/TwitchRobot/create_ws
 sudo apt-get update && sudo apt-get install --only-upgrade python-catkin-pkg && sudo apt-get install -y python-catkin-tools
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
+echo "source ~/TwitchRobot/create_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 ### Build
