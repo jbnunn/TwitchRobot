@@ -51,4 +51,4 @@ sudo usermod -a -G dialout $USER
 
 ### On to the next step...
 
-If you see the output above, you're ready to setup AWS IoT in [Chapter 4](./Chapter4-IoT.md).
+You're ready to setup AWS IoT in [Chapter 4](./Chapter4-IoT.md).
