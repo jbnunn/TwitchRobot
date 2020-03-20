@@ -16,7 +16,7 @@ When the IoT console loads, look to the left navigation panel, click "Onboard", 
 
 3. In the "Register a thing" step, give your "thing" (a robot, in this case) a name, "TwitchRobot", then click **Next step**.
 
-4. Click the "Download connection kit for Linux/OSX" button. This downloads a connect_device_package.zip file containing the certificate and private key you'll need. When the file has downloaded, click **Next step**.
+4. Click the "Download connection kit for Linux/OSX" button. This downloads a `connect_device_package.zip` file containing the certificate and private key you'll need a bit later. When the file has downloaded, click **Next step**.
 
 5. You do not need to follow the steps on the "Configure and test your device" section. Click **Done**, and then **Done** again to take you to your "Things" hub.
 
@@ -32,7 +32,7 @@ When the IoT console loads, look to the left navigation panel, click "Onboard", 
 
 5. Check the box for "TwitchRobot-Policy", then click the **Attach** button.
 
-### Update the Policy
+### Update the policy
 
 1. Click "Policies" on the left navigation menu, then select "TwitchRobot-Policy" to load the policy.
 
@@ -81,9 +81,28 @@ When the IoT console loads, look to the left navigation panel, click "Onboard", 
 
 **IMPORTANT: THE POLICY ABOVE SHOULD BE USED FOR TESTING. IN PRODUCTION ENVIRONMENTS, LIMIT THE RESOURCE ACCESS TO SPECIFIC RESOURCE(S), RATHER THAN ALL RESOURCES ("*").**
 
+### Upload certificates to Raspberry Pi
+
+1. The certificates you downloaded earlier in this step are located in the `connect_device_package.zip` file. Unzip this file. You should have TwitchRobot.cert.pem, TwitchRobot.private.key, and TwitchRobot.public.key. (Ignore the start.sh file this extracted).
+
+2. From a terminal prompt on your computer, copy these files to your Raspberry Pi. 
+
+```
+cd ~/Downloads/connect_device_package # Or similar location
+scp TwitchRobot.cert.pem pi@192.168.X.Y:/home/pi/TwitchRobot/certs
+scp TwitchRobot.private.key pi@192.168.X.Y:/home/pi/TwitchRobot/certs
+```
+
+Your certs directory should now have three files:
+
+```
+pi@raspberrypi:~/TwitchRobot/certs $ ls
+AmazonRootCA1.crt  TwitchRobot.cert.pem  TwitchRobot.private.key
+```
+
 ### Install and configure the AWS CLI tool
 
-SSH into your device and install the AWS CLI tools:
+On your Raspberry Pi, install the AWS CLI tools:
 
 ```
 pip install awscli --upgrade --user
@@ -132,17 +151,6 @@ Install the AWS IoT Device SDK for Python to easily configure parameters for com
 ```
 pip install AWSIoTPythonSDK
 ```
-
-### Update your certificate names in `/create_ws/src/alexa/src/listener.py`.
-
-You'll need to change the names of the certificates in the [listener.py code](https://github.com/jbnunn/TwitchRobot/blob/master/create_ws/src/alexa/src/listener.py).
-
-Open that file, and search for the line
-
-    # Change these certificate names
-
-Modify the certificate names to be the ones you downloaded.
-
 
 ### On to the next step...
 
