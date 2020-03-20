@@ -1,12 +1,12 @@
 # [Twitch Robot](./README.md) > Creating an IoT Thing and Certificates
 
-This should take 5-10 minutes. 
+This should take 10-20 minutes. 
 
 ## Steps
 
 ### Create Thing and Certificates
 
-1. You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to the `certs/` and `lambda/certs/` folder.
+1. You'll need to create certificates in order to securely communicate with the robot over MQTT. Follow [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) and save the certificates you generate to your Raspberry Pi in the `~/TwitchRobot/certs/` and `~/TwitchRobot/lambda/certs/` folder.
 
 2. Activate the Thing, then attach the following policy to allow communications between the IoT service and your device.
 
@@ -48,6 +48,24 @@ This should take 5-10 minutes.
         ]
     }
 ```
+
+### Install and configure the AWS CLI tool
+
+SSH into your device and install the AWS CLI tools:
+
+```
+pip install awscli --upgrade --user
+echo "PATH=/home/pi/.local/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+```
+
+Now, configure the AWS CLI tool. 
+
+```
+awsa configure
+```
+
+
 ### Setup OS Environment variable
 
 You'll need an AWS IOT endpoint with which to communicted to/from your robot. From the command line, issue the following command:
