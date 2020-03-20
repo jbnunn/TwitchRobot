@@ -89,11 +89,10 @@ Note: I installed with the `-j2` switch. You can try `-j8` or `-j4` on a Raspber
 sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/melodic -j2
 ```
 
-### Init some default shell scripts
+### Initialize ros when you open a shell
 
 ```
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
-echo "source ~/TwitchRobot/create_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 ### Setup an alias to Python 3
