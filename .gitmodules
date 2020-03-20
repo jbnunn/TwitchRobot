@@ -1,6 +1,3 @@
-[submodule "create_ws/src/libcreate"]
-	path = create_ws/src/libcreate
-	url = https://github.com/AutonomyLab/libcreate
 [submodule "create_ws/src/diagnostics"]
 	path = create_ws/src/diagnostics
 	url = https://github.com/ros/diagnostics.git
@@ -8,3 +5,7 @@
 	path = create_ws/src/create_autonomy
 	url = https://github.com/jbnunn/create_autonomy.git
 	branch = melodic
+[submodule "librcreate-src"]
+	path = create_ws/src/libcreate
+	url = https://github.com/AutonomyLab/libcreate
+	branch = master

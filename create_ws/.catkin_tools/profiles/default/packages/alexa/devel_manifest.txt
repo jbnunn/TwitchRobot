@@ -1,5 +1,5 @@
 alexa
 /home/pi/TwitchRobot/create_ws/devel/.private/alexa/cmake.lock /home/pi/TwitchRobot/create_ws/devel/./cmake.lock
-/home/pi/TwitchRobot/create_ws/devel/.private/alexa/share/alexa/cmake/alexaConfig-version.cmake /home/pi/TwitchRobot/create_ws/devel/share/alexa/cmake/alexaConfig-version.cmake
 /home/pi/TwitchRobot/create_ws/devel/.private/alexa/share/alexa/cmake/alexaConfig.cmake /home/pi/TwitchRobot/create_ws/devel/share/alexa/cmake/alexaConfig.cmake
+/home/pi/TwitchRobot/create_ws/devel/.private/alexa/share/alexa/cmake/alexaConfig-version.cmake /home/pi/TwitchRobot/create_ws/devel/share/alexa/cmake/alexaConfig-version.cmake
 /home/pi/TwitchRobot/create_ws/devel/.private/alexa/lib/pkgconfig/alexa.pc /home/pi/TwitchRobot/create_ws/devel/lib/pkgconfig/alexa.pc
